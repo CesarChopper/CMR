@@ -1,0 +1,106 @@
+<?php
+session_start();
+// Si no hay sesión, redirige a login
+if (!isset($_SESSION['user'])) {
+  header("Location: index.php");
+  exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cobertura</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <nav class="navigation" aria-label="Menú principal">
+      <ul>
+        <li class="brand">
+          <a href="#">
+            <span class="icon"><ion-icon name="map-outline" aria-hidden="true"></ion-icon></span>
+            <span class="title">Cobertura</span>
+          </a>
+        </li>
+
+        <li class="nav-item hovered">
+          <a href="#">
+            <span class="icon"><ion-icon name="earth-outline" aria-hidden="true"></ion-icon></span>
+            <span class="title">Mapa</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a id="logout-btn" href="/logout.php">
+            <span class="icon"><ion-icon name="log-out-outline" aria-hidden="true"></ion-icon></span>
+            <span class="title">Salir</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar">
+        <button class="toggle" aria-label="Abrir menú">
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <div class="search">
+          <label>
+            <input id="searchInput" type="text" placeholder="Buscar (Enter)..." aria-label="Buscar ciudad o agencia" />
+            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+          </label>
+        </div>
+
+        <div class="controls">
+          <select id="datasetSelect" aria-label="Seleccionar entidad">
+            <option value="cdmx">CDMX</option>
+            <option value="edomex">Estado de México</option>
+            <option value="ny">NY (ejemplo)</option>
+          </select>
+
+          <button id="btnJson" class="btn" type="button" title="Exportar JSON">JSON</button>
+          <button id="btnGeoJson" class="btn" type="button" title="Exportar GeoJSON">GeoJSON</button>
+        </div>
+
+        <div class="user">
+          <span class="user-name"><?php echo htmlspecialchars($_SESSION['user'] ?? 'Usuario'); ?></span>
+        </div>
+      </div>
+
+      <section class="content">
+        <div id="stats" class="stats" aria-live="polite"></div>
+        <div id="mapid" role="region" aria-label="Mapa de cobertura"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <!-- App -->
+  <script src="main.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

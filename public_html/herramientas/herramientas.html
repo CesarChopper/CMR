@@ -1,0 +1,320 @@
+<?php
+session_start();
+
+// Verificar si no hay una sesión activa, redirigir al inicio de sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php"); // Ajusta la ruta según la estructura de tu sitio
+    exit();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="/public_html/assets/imgs/logo.png" type="image/x-icon">
+    <title>Herramientas</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/public_html/home/Home.html">
+                        <span class="icon">
+                            <img src="/public_html/assets/imgs/LOGO FRAVEO.png" width="250" alt="logo">
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/home/Home.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Incio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public_html/chat/chat.html">
+                        <span class="icon">
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                        </span>
+                        <span class="title">Chat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public_html/correo/correo.html">
+                        <span class="icon">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </span>
+                        <span class="title">Correo</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/public_html/novedades/novedades.html">
+                        <span class="icon">
+                            <ion-icon name="newspaper-outline"></ion-icon>
+                        </span>
+                        <span class="title">Novedades</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/registro/registro.html">
+                        <span class="icon">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </span>
+                        <span class="title">Registro</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/herramientas/herramientas.html">
+                        <span class="icon">
+                            <ion-icon name="construct-outline"></ion-icon>
+                        </span>
+                        <span class="title">Herramientas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/logicas/logicas.html">
+                        <span class="icon">
+                            <ion-icon name="library-outline"></ion-icon>
+                        </span>
+                        <span class="title">Logicas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/cobertura/cobertura.html">
+                        <span class="icon">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </span>
+                        <span class="title">Cobertura</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/calculadora/calculadora.html">
+                        <span class="icon">
+                            <ion-icon name="calculator-outline"></ion-icon>
+                        </span>
+                        <span class="title">Calculadora</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a id="logout-btn">
+                        <span class="icon">
+                            <ion-icon name="log-out"></ion-icon>
+                        </span>
+                        <span class="title">LogOut</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+            <!-- ======================= News ================== -->
+            <div class="cardContainer">
+                <div class="card">
+
+                    <div class="iconBx">
+                        <img src="/public_html/assets/imgs/cromo.png" width="50" alt="">
+                    </div>
+
+                    <div class="cardNames">Google Docs</div>
+                    <br>
+                    <div class="recuadro">
+
+                      <a href="https://docs.google.com/spreadsheets/d/1UGMgAA7mv8HTc_cmAc45FzXG9mDmlZkzT8N3YsbZa9c/edit#gid=378047487" class="enlace-estilizado" target="_blank">Bitacora</a> 
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/document/d/1zFqUmyLvFu_j16LhLUXJhzIZltSo9o2r7lqGtGaodJM/edit" class="enlace-estilizado" target="_blank">Tarifa de limpieza</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/document/d/1UikbNb6M4QepL4XJBqWsqnMFZd_qlHsUUhx3wXYTFfA/edit" class="enlace-estilizado" target="_blank">Reembolsos</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/document/d/1AXabE0r6MFOxMK2n9E3UC4PkQbTT2bpvbTpzr--yqH8/edit" class="enlace-estilizado" target="_blank">Pagos</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1lLOZWJd-YCgvJBtlEovWZyfyDRiteXdTVr3MCKg3ftI/edit#gid=701586130" class="enlace-estilizado" target="_blank">Plantillas</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1lLOZWJd-YCgvJBtlEovWZyfyDRiteXdTVr3MCKg3ftI/edit#gid=185436032" class="enlace-estilizado" target="_blank">Plantillas VOXI</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/14G6sOVMSalNHkzHJQZPCR8-V7ERP77QClFB-g0n9QVE/edit#gid=1130670302" class="enlace-estilizado" target="_blank">Verificacion</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1MNGoOGefu35lPbVXIxwncu55QvcQMteX9jT8K98W_n4/edit#gid=710684384" class="enlace-estilizado" target="_blank">Vouchers Guusto</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1f0A5pOtViXuVcRH68qbDUCRtJzNKvmh_u1380i4j-4I/edit?pli=1#gid=353700991" class="enlace-estilizado" target="_blank">Vehiculos Confort</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8YwclPpB-mVKWR3a2g3LEa4cjYGDgvaubB4RzQnujjveu0A/viewform" class="enlace-estilizado" target="_blank">Solicitud Comfort & XL</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1dr5hufWvYQxyfLqhcBMMFBg8CnEg6AuxfuOn2xz12Ko/edit?gid=1231024233#gid=1231024233" class="enlace-estilizado" target="_blank">Bitacora Comfort & XL</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1mfhWSX4yRgcMqDeFcBtykqZzs8avMIl5ZLIRMBoBmJU/edit#gid=0" class="enlace-estilizado" target="_blank">Pets</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1ifXdcDO8S8ZTQWYtXa5x1aWGsjtTMKjqFmt025qc_Mw/edit#gid=1510042427" class="enlace-estilizado" target="_blank">Monetizacion</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1o2L4KVIsjbcmD7ifsj5be65NEnHlkGXSYzp2waw0lG8/edit#gid=0" class="enlace-estilizado" target="_blank">Referidos</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1r5PHVHYOYNkqp6r8eJ8NAg8P59vEY9tDAqFBiIZhub8/edit?gid=0#gid=0" class="enlace-estilizado" target="_blank">Tags</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1dr5hufWvYQxyfLqhcBMMFBg8CnEg6AuxfuOn2xz12Ko/edit#gid=733211030" class="enlace-estilizado" target="_blank">Quejas Comfort</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1bRFWvKb5jM5MmtaJnZ7cwrQ0Zo72LgHxdfY4ozzV6zU/edit?gid=1663972891#gid=1663972891" class="enlace-estilizado" target="_blank">Docs verificacion USA</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/document/d/1Gu7Vmg2AHMB014CrJAcF6vStsmwp-pCfNFH7hcZKCbM/edit?tab=t.0" class="enlace-estilizado" target="_blank">JIRA Presentacion</a>
+                      <br>
+                      <br>
+                      <a href="https://docs.google.com/spreadsheets/d/1pk6nTqURCt2ayZvE83zy_dcOWwLxrt6vkbZJ8OUHDGA/edit?gid=1565301900#gid=1565301900" class="enlace-estilizado" target="_blank">Bitacora Reembolsos limpieza</a>
+                      <br>
+                      <br>
+
+                </div>         
+            </div>
+            <div class="card">
+
+                <div class="iconBx">
+                    <img src="/public_html/assets/imgs/computadora.png" width="50" alt="">
+                </div>
+                
+                <div class="cardNames">Herramientas</div>
+                <br>
+                <div class="recuadro">
+                    
+                    <a href="https://apple.indriver.com/" class="enlace-estilizado" target="_blank">Redmine</a>
+                    <br>
+                    <br>
+                    <a href="https://guusto.com/merchants-list" class="enlace-estilizado" target="_blank">Tiendas Guusto</a>
+                    <br>
+                    <br>
+                    <a href="https://help.guusto.com/en/articles/1481325-how-to-guide-to-claim-redeem-and-use-a-guusto-gift" class="enlace-estilizado" target="_blank">Canje Guusto</a>
+                    <br>
+                    <br>
+                    <a href="https://www.855dolor55.com/conducir-en-miami/" class="enlace-estilizado" target="_blank">Peajes</a>
+                    <br>
+                    <br>
+                    <a href="https://drive.google.com/file/d/1uEq3Y1Q8vCGfouDtuBrr_WOfY2ix0V9P/view?usp=sharing" class="enlace-estilizado" target="_blank">Distintivo inDrive</a>
+                    <br>
+                    <br>
+                    <a href="https://candidate.checkr.com/login?browser=true" class="enlace-estilizado" target="_blank">Portal Candidatos BGC</a>
+                    <br>
+                    <br>
+                    <a href="https://www.sunpass.com/es/home/index.shtml" class="enlace-estilizado" target="_blank">SUNPASS</a>
+                    <br>
+                    <br>
+                    <a href="https://docs.google.com/spreadsheets/d/1OJnN1xaahPtqZL7UAcsc3fKYPXs34qvI6wJcWSLlXZ0/edit?gid=897404153#gid=897404153&range=B23" class="enlace-estilizado" target="_blank">Tutoriales</a>
+                    <br>
+                    <br>
+                    <a href="" class="enlace-estilizado" target="_blank"></a>
+                    <br>
+                    <br>
+                    <a href="" class="enlace-estilizado" target="_blank"></a>
+                    <br>
+                    <br>
+
+            </div>         
+        </div>
+        <div class="card">
+
+            <div class="iconBx">
+                <img src="/public_html/assets/imgs/registro-en-linea.png" width="50" alt="">
+            </div>
+
+            <div class="cardNames">Forms Internos</div>
+            <br>
+            <div class="recuadro">
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+                <a href="" class="enlace-estilizado" target="_blank"></a>
+                <br>
+                <br>
+              
+        </div>         
+    </div>
+    <!--<div class="card">
+
+        <div class="iconBx">
+            <ion-icon name="earth-outline"></ion-icon>
+        </div>
+        
+        <div class="cardNames">Empty</div>
+        <br>
+        <div class="recuadro">
+          <h2>Empty</h2>
+
+    </div>-->
+    <br>
+</div>
+
+            <!-- ================ Order Details List ================= -->
+            <!-- ================= New Customers ================ -->
+                </div>
+            </div>
+        </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!--<?php
+session_start();
+
+// Verificar si no hay una sesión activa, redirigir al inicio de sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php"); // Ajusta la ruta según la estructura de tu sitio
+    exit();
+}
+?>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="/public_html/assets/imgs/LOGO FRAVEO.png" type="image/x-icon">
+    <title>Home</title>
+
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="/public_html/home/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/public_html/home/Home.html">
+                        <span class="icon">
+                            <img src="/public_html/assets/imgs/LOGO FRAVEO.png" width="250" alt="logo">
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/home/Home.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Incio</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public_html/chat/chat.html">
+                        <span class="icon">
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                        </span>
+                        <span class="title">Chat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public_html/correo/correo.html">
+                        <span class="icon">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </span>
+                        <span class="title">Correo</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/public_html/novedades/novedades.html">
+                        <span class="icon">
+                            <ion-icon name="newspaper-outline"></ion-icon>
+                        </span>
+                        <span class="title">Novedades</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/registro/registro.html">
+                        <span class="icon">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </span>
+                        <span class="title">Registro</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/herramientas/herramientas.html">
+                        <span class="icon">
+                            <ion-icon name="construct-outline"></ion-icon>
+                        </span>
+                        <span class="title">Herramientas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/logicas/logicas.html">
+                        <span class="icon">
+                            <ion-icon name="library-outline"></ion-icon>
+                        </span>
+                        <span class="title">Logicas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/cobertura/cobertura.html">
+                        <span class="icon">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </span>
+                        <span class="title">Cobertura</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/calculadora/calculadora.html">
+                        <span class="icon">
+                            <ion-icon name="calculator-outline"></ion-icon>
+                        </span>
+                        <span class="title">Calculadora</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a id="logout-btn">
+                        <span class="icon">
+                            <ion-icon name="log-out"></ion-icon>
+                        </span>
+                        <span class="title">LogOut</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <div class="buscar">
+					<label for="">
+						<input type="text" placeholder="Buscar..." name="" id="">
+						<ion-icon name="search"></ion-icon>
+					</label>
+				</div>
+				<div class="perfil-usuario">
+					<img src="/public_html/assets/imgs/usuario.png" alt="">
+				</div>
+            </div>
+
+        <!-- Cards -->
+
+			<!-- Fin Cards -->
+
+        <!-- ======================= DASHBOARD ================== -->
+        
+				<!-- Fin Órdenes Recientes -->
+
+				<!-- Nuevos Clientes -->
+
+        <!-- ================ Order Details List ================= -->
+        <!-- ================= New Customers ================ -->
+                </div>
+            </div>
+        </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="/public_html/home/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

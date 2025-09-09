@@ -1,0 +1,219 @@
+<?php
+session_start();
+
+// Verificar si no hay una sesión activa, redirigir al inicio de sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php"); // Ajusta la ruta según la estructura de tu sitio
+    exit();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="/public_html/assets/imgs/logo.png" type="image/x-icon">
+    <title>Tutorial</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="/public_html/logicas/Tutorial/css/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/public_html/home/Home.html">
+                        <span class="icon">
+                            <img src="/public_html/assets/imgs/caballo.png" width="70" alt="caballo">
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/home/Home.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public_html/CHAT/CHAT.html">
+                        <span class="icon">
+                            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                        </span>
+                        <span class="title">Chat</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/public_html/CORREO/CORREO.html">
+                        <span class="icon">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </span>
+                        <span class="title">Correo</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/public_html/news/news.html">
+                        <span class="icon">
+                            <ion-icon name="newspaper-outline"></ion-icon>
+                        </span>
+                        <span class="title">News</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/Tracker/tracker.html" target="_blank">
+                        <span class="icon">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </span>
+                        <span class="title">Tracker</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/herramientas/herramientas.html">
+                        <span class="icon">
+                            <ion-icon name="construct-outline"></ion-icon>
+                        </span>
+                        <span class="title">Herramientas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/logicas/logicas.html">
+                        <span class="icon">
+                            <ion-icon name="library-outline"></ion-icon>
+                        </span>
+                        <span class="title">Logicas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/cobertura/cobertura.html">
+                        <span class="icon">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </span>
+                        <span class="title">Cobertura</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/public_html/calculadora/calculadora.html">
+                        <span class="icon">
+                            <ion-icon name="calculator-outline"></ion-icon>
+                        </span>
+                        <span class="title">Calculadora</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a id="logout-btn">
+                        <span class="icon">
+                            <ion-icon name="log-out"></ion-icon>
+                        </span>
+                        <span class="title">LogOut</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+
+            <!-- ======================= Logicas ================== -->
+            <div class="cardContainer">
+                <div class="card">
+
+                    <div class="iconBx">
+                        <img src="/public_html/assets/imgs/eeuu.png" width="50" alt="">
+                    </div>
+
+                    <div class="cardNames">CONDUCTOR</div>
+                    <br>
+                    <div class="recuadro">
+                        <a href="" class="enlace-estilizado" target="_blank">Cómo convertirse en conductor</a>
+                        <br>
+                        <br>
+                        <a href= "" class="enlace-estilizado" target="_blank">Cómo y dónde funciona inDrive</a> 
+                        <br>
+                        <br>
+                        <a href="#" class="enlace-estilizado" target="_blank">Cómo cambiar la configuración</a> 
+                        <br>
+                        <br>
+                        <a href="#" class="enlace-estilizado" target="_blank">Cómo aceptar un pedido</a>  
+                        <br>
+                        <br>
+                        <a href="#" class="enlace-estilizado" target="_blank">Como referir a un amigo</a> 
+                        <br>
+                        <br>
+                        <a href="#" class="enlace-estilizado" target="_blank">Cómo subir documentos</a> 
+                        <br>
+                        <br>
+                        <a href="#" class="enlace-estilizado" target="_blank">Cómo añadir un segundo coche</a> 
+                        
+                    
+                </div>         
+            </div>
+
+        <div class="card">
+            <div class="iconBx">
+                <img src="/public_html/assets/imgs/identificar.png" width="50" alt="">
+            </div>
+
+            <div class="cardNames">PASAJERO</div>
+            <br>
+            <div class="recuadro">
+              <a href="#" class="enlace-estilizado" target="_blank">Cómo hacer una reserva anticipada</a> 
+              <br>
+              <br>
+              <a href="#" class="enlace-estilizado" target="_blank">Cómo añadir una parada adicional</a> 
+              <br>
+              <br>
+              <a href="#" class="enlace-estilizado" target="_blank">Cómo y dónde funciona inDrive</a> 
+              <br>
+              <br>
+              <a href="#" class="enlace-estilizado" target="_blank">Cómo cambiar pedidos</a> 
+              <br>
+              <br>
+              <a href="#" class="enlace-estilizado" target="_blank">Cómo dar propina a los conductores</a> 
+              <br>
+              <br>
+              <a href="#" class="enlace-estilizado" target="_blank">Como referir a un amigo</a> 
+        </div>         
+    </div>
+               
+
+            <!-- ================ Order Details List ================= -->
+            <!-- ================= New Customers ================ -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="/public_html/logicas/Tutorial/js/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>

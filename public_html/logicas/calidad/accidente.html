@@ -1,0 +1,341 @@
+<?php
+session_start();
+
+// Verificar si no hay una sesión activa, redirigir al inicio de sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php"); // Ajusta la ruta según la estructura de tu sitio
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="/assets/imgs/logo.png" type="image/x-icon">
+    <title>Objeto Perdido</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="/home/Home.php">
+                        <span class="icon">
+                            <img src="/assets/imgs/caballo.png" width="70" alt="Caballo">
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/home/Home.php">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Home</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/news/news.php">
+                        <span class="icon">
+                            <ion-icon name="newspaper-outline"></ion-icon>
+                        </span>
+                        <span class="title">News</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/Tracker/tracker.html" target="_blank">
+                        <span class="icon">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </span>
+                        <span class="title">Tracker</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/herramientas/herramientas.php">
+                        <span class="icon">
+                            <ion-icon name="construct-outline"></ion-icon>
+                        </span>
+                        <span class="title">Herramientas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/logicas/logicas.php">
+                        <span class="icon">
+                            <ion-icon name="library-outline"></ion-icon>
+                        </span>
+                        <span class="title">Logicas</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/cobertura/cobertura.php">
+                        <span class="icon">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </span>
+                        <span class="title">Cobertura</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/calculadora/calculadora.php">
+                        <span class="icon">
+                            <ion-icon name="calculator-outline"></ion-icon>
+                        </span>
+                        <span class="title">Calculadora</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a id="logout-btn" href="#">
+                        <span class="icon">
+                            <ion-icon name="log-out"></ion-icon>
+                        </span>
+                        <span class="title">LogOut</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+            </div>
+
+            <!-- ======================= Objeto ================== -->
+            <div class="iconBx">
+                <img src="/assets/imgs/Objeto.png" width="200" height="200" alt="Objeto Perdido">
+            </div>
+            <div class="cardContainer">
+                <div class="card">
+                    <br>
+                    <div class="recuadro">
+                        <p>En ocasiones los usuarios o conductores pueden reportar que olvidan o encuentran pertenencias, por lo que el soporte debe brindar el seguimiento adecuado para que estas puedan ser devueltas a sus dueños.</p>
+                        <br>
+                        <div class="recuadroTag">
+                            <label for="TAG">TAG</label>
+                            <select id="TAG" name="TAG">
+                                <option value="Pasajero">(Pasajero) Lost and Found/Lost</option>
+                                <option value="Conductor">(Conductor) Lost and Found/Found</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    
+                    <div class="recuadroDatos">
+                        <p>1️⃣ SONDEO</p>
+                    </div>
+
+                    <div class="recuadroDatosSondeo">
+                        <p>Empieza por sondear al Usuario o Conductor para determinar si es un <b>Robo, Objeto olvidado o Objeto encontrado.</b> 
+                            <br><br>
+                            Es importante que puedas recabar todos los datos posibles, incluyendo el Punto A y B del viaje, Fecha, Hora, Lugar donde encontró el objeto, Nombre del pasajero, características del objeto, etc.</p>
+                    </div>
+                    <br><br>
+                    <div class="recuadroNota">
+                        <p>IMPORTANTE</p>
+                    </div>
+                    <div class="recuadroDatosNota">
+                        <p>En caso de que la persona que reporte indique que existió algún tipo de violencia, uso de armas, agresión, lesiones, etc... 
+                            <br><br>
+                            Es importante que no lo tomes como un objeto perdido, sino como un robo, por lo que es necesario que envíes los datos a Calidad. Puedes consultar el proceso <a href="#" target="_blank">Aquí</a></p>
+                    </div>
+                    <br><br>
+                    <div class="recuadroTitulo">
+                        <p>PLANTILLAS</p>
+                    </div>
+                    <div class="recuadroPlantillasT">
+                        <br>
+                        <div class="recuadroPlantillas" onclick="mostrarCuadro('pasajero')">Pasajero</div>
+                        <br>
+                        <div class="recuadroPlantillas" onclick="mostrarCuadro('conductor')">Conductor</div>
+                        <br>
+                        
+                        <div id="cuadroPasajero" class="recuadroDatosPlantillas">
+                            <p>Sabemos que no es la experiencia que esperaba con inDrive y lamentamos mucho lo sucedido. Si me lo permite, puedo ayudarle a buscar la solución más rápida y precisa a su problema.
+                            <br><br>
+                            Para brindarle una atención más adecuada, le solicitamos los siguientes datos:
+                            <br><br>
+                            📍 El Punto A y Punto B (como aparece en la aplicación)
+                            <br>
+                            📅 Fecha y hora del viaje
+                            <br>
+                            🤵 Datos que recuerde del Conductor (modelo de auto, placa, color, etc.)
+                            <br>
+                            📞 Número de teléfono adicional (para poder contactarle)
+                            <br><br>
+                            Estaremos pendientes de su amable respuesta.</p>
+                        </div>
+                        
+                        <div id="cuadroConductor" class="recuadroDatosPlantillas">
+                            <p>Su profesionalismo ante estas situaciones significa mucho para nosotros. Con gusto puedo ayudarle para devolver el objeto.
+                            <br><br>
+                            Para brindarle una atención más adecuada, le solicitamos los siguientes datos:
+                            <br><br>
+                            📍 El Punto A y Punto B (como aparece en la aplicación)
+                            <br>
+                            📅 Fecha y hora del viaje
+                            <br>
+                            🤵 Datos que recuerde del Pasajero
+                            <br>
+                            🧩Características del Objeto (¿Qué es?, Color, Marca, Señales particulares...)
+                            <br><br>
+                            Estaremos pendientes de su amable respuesta.</p>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="recuadroDatos">
+                    <p>2️⃣ NOTA</p>
+                    </div>
+
+                    <div class="recuadroDatosRegistro">
+                        <p>Una vez obtenidos los datos, es importante buscar el viaje y analizar que esté completado. Si el viaje está como cancelado o aceptado, será necesario corroborar con la contraparte la versión del que reporta el objeto.</p>
+                    </div>
+                    <br><br>
+                    <div class="recuadroNota">
+                        <p>NOTA</p>
+                    </div>
+                    <div class="recuadroDatosNota">
+                        <p>El siguiente paso es generar la Nota de evidencia en ambos perfiles de Podval. El formato obligatorio para todos los operadores debe ser el siguiente</p>
+                    </div>
+                    <br><br>
+                    <div class="recuadroNotaPod">
+                        <p>NOTA DE INICIO
+                        <br><br>
+                        Medio de contacto:
+                        <br>  
+                        ID Conductor: 
+                        <br>
+                        ID Pasajero:
+                        <br>
+                        ID Contacto: (En caso de que aplique)
+                        <br>
+                        Link del Viaje:  
+                        <br>
+                        Motivo de la nota:
+                        <br><br>
+                        #</p>
+                    </div> 
+
+                    <div class="recuadroDatos">
+                        <p>3️⃣ PROCESO</p>
+                    </div>
+                    <div class="recuadroDatosProceso">
+                        <p>Una vez completados todos los datos del formato, sera necesario realizar una llamada para confirmar el paradero del objeto</p>
+                    </div>
+
+                    <br><br>
+                    <div class="recuadroPasajero1">
+                        <p>Correo o Chat<p>
+                    </div>
+                            <div class="recuadroDatosPasajero1">
+                                <p><b>1.-</b> Indicale al Conductor lo siguiente:
+                                    <br>
+                                    <br>
+                                    Agradezco su profesionalismo y honestidad ante este tipo de situaciones así mismo le agradezco que forme parte de los conductores más leales, es importante que pueda acudir a la brevedad a su estación de pick up property a entregar el objeto, esta se encuentra en 400 NW 2nd Avenue Miami, FL 33128. labora de lunes a viernes, en un horario de 8:00 - 15:00 hrs para más información puede contactar al número 305 603 6455.
+                                    <br><br>
+                                    Recuerde no abrir paquetes o bolsas olvidados de esta manera podremos brindar el seguimiento, una vez entregue el objeto será importante que se comunique con nosotros para que nos pueda indicar lo siguiente:
+                                    <br><br>
+                                    🟢 <b>Número de caso</b> (Este se lo proporciona el agente que reciba el objeto)
+                                    <br><br>
+                                    Su satisfacción lo es todo para nosotros, ¿hay algo más en que podamos ayudarlo?	                                
+                                    <br>
+                                    
+                                </p>
+                            </div>
+    
+                            <br><br>
+                            <div class="recuadroPasajero1">
+                                <p>VOXI<p>
+                            </div>
+                                    <div class="recuadroDatosPasajero1">
+                                        <p><b>1.-</b> Indicale al pasajero que daras seguimiento del caso, puedes apoyarte de este <a href="#" target="_blank">Speech</a>
+                                            <br>
+                                            <br>
+                                            <b>2.-</b> Genera un Correo desde tu correo de Gmail empresarial, con el formato adminito, puedes consultar la plantilla <a href="#" target="_blank">Aqui</a>
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="TieneElObjeto">
+                                        <p>¿Ya entrego el Objeto?<p>
+                                      </div>
+                                      <br>
+                                      <br>
+                                      <div class="ObjetoSi">
+                                        <p>Si<p>
+                                      </div>
+                                      
+                                      
+                                      <div class="recuadroDatosObjetoSi">
+                                        <p>
+                                            Cuando el conductor se comunique nuevamente con su numero de caso sera necesario dar seguimiento no importa que sea otro agente el que lo atienda.
+                                        </p>
+                                    </div> 
+                                    <div class="recuadroDatosPasajero0">
+                                        <p><b>1.-</b> Agradece el tiempo que tomo en llevar el objeto y pide el numero de caso.
+                                            <br>
+                                            <br>
+                                            <b>2.-</b> Llama al pasajero indicale lo siguiente:
+                                            <br>
+                                            <br>
+                                            Estimado Sr Srita
+                                            <br><br>
+                                            Hemos encontrado su objeto,el conductor ha dejado el articulo en la estacion de Objetos perdidos, es importante que pueda acudir a la siguiente direccion para poder reclamarlo:
+                                            <br><br>
+                                            🟢 400 NW 2nd Avenue Miami, FL 33128
+                                            <br>
+                                            🟢 labora de lunes a viernes, en un horario de 8:00hrs - 15:00hrs
+                                            <br>
+                                            🟢 Numero de caso (Prporcionado por el conductor)
+                                            <br><br>
+                                            <b>Sera necesario que acuda con una identificacion oficial</b>						
+                                            <br><br>
+                                            <b>3.-</b> Una vez que el pasajero confirme que ya tiene el objeto cierra la nota puedes agregar al final de la nota "Pasajero confirma devolucion, se cierra caso"
+                                        </p>
+                                    </div>
+                                    <br>
+                                    <br>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        function mostrarCuadro(id) {
+            const cuadros = document.querySelectorAll('.recuadroDatosPlantillas');
+            cuadros.forEach(cuadro => {
+                if (cuadro.id === `cuadro${id.charAt(0).toUpperCase() + id.slice(1)}`) {
+                    cuadro.style.display = 'block';
+                } else {
+                    cuadro.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
